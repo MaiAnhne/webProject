@@ -35,9 +35,10 @@ class apiResMaiAnh extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
 
-        User::create([
-            "name" => $name,
-            "email" => $email
+
+          User::factory()->create([
+            'name' => $name,
+            'email' => $email,
         ]);
         
         return response()->json([
