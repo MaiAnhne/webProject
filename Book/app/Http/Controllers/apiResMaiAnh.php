@@ -27,6 +27,26 @@ class apiResMaiAnh extends Controller
         return response()->json($data);
     }
 
+
+
+    public function postUser(Request $request){
+
+
+        $name = $request->input('name');
+        $email = $request->input('email');
+
+        User::create([
+            "name" => $name,
+            "email" => $email
+        ]);
+        
+        return response()->json([
+            'result' =>true,
+            "name" => $name,
+            "email" => $email
+    ]);
+
+    }
     /**
      * Display the specified resource.
      */

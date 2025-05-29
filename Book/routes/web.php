@@ -8,3 +8,6 @@ Route::get('/', function () {
 
 
 Route::get('/store', 'App\Http\Controllers\apiResMaiAnh@store');
+
+Route::post('/postUser', 'App\Http\Controllers\apiResMaiAnh@postUser');
+
