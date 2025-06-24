@@ -33,51 +33,15 @@
 
 ## 🛠️ Công nghệ sử dụng
 
-| Công cụ         | Mô tả                                  |
+| Công cụ         | Mô tả                                   |
 |----------------|------------------------------------------|
-| **Laravel** | Framework PHP mạnh mẽ, phổ biến          |
+| **Laravel** | Framework PHP mạnh mẽ, phổ biến             |
 | **Laravel Breeze** | Gói xác thực user đơn giản, nhẹ      |
 | **Tailwind CSS** | Dùng để viết giao diện đẹp, gọn        |
 | **Eloquent ORM** | Quản lý quan hệ bảng dễ như chơi       |
 | **GitHub Codespaces** | Viết Laravel ngay trên web        |
 
----
 
-## 🏗️ Cấu trúc dữ liệu
-
-```mermaid
-classDiagram
-    User <|-- Order
-    Order o-- OrderItem
-    Book <|-- OrderItem
-
-    class User {
-        +id
-        +name
-        +email
-        +password
-    }
-
-    class Book {
-        +id
-        +title
-        +author
-        +price
-    }
-
-    class Order {
-        +id
-        +user_id
-        +total
-    }
-
-    class OrderItem {
-        +id
-        +order_id
-        +book_id
-        +quantity
-        +price
-    }
 ## Bảo mật được áp dụng
 - CSRF	Mọi form có @csrf
 - XSS	Escape dữ liệu {{ $var }}
