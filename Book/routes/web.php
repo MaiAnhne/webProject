@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+
+Route::middleware(['auth'])->group(function() {
+    Route::resource('books', BookController::class);
+});
 
 Route::get('/', function () {
     return view('welcome');
