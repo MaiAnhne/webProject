@@ -2,7 +2,6 @@
 
 PORT=${1:-8000}
 
-# Kiểm tra Docker đã cài và đang chạy chưa
 if ! command -v docker &> /dev/null; then
     echo "❌ Docker chưa được cài đặt."
     exit 1
@@ -13,13 +12,23 @@ if ! docker info &> /dev/null; then
     exit 1
 fi
 
-# Giải phóng cổng nếu bị chiếm
 if lsof -i :$PORT > /dev/null 2>&1; then
     echo "⚠️ Port $PORT is busy. Releasing..."
     sudo fuser -k ${PORT}/tcp
     sleep 1
 fi
 
-# Khởi động Laravel bằng docker
+# Cài vendor nếu chưa có
+if [ ! -d "vendor" ]; then
+    echo "🔧 Đang cài đặt composer vendor..."
+    docker run --rm -v "$(pwd)":/app -w /app composer install
+fi
+
+# Kiểm tra file artisan
+if [ ! -f "artisan" ]; then
+    echo "❌ Không tìm thấy file artisan. Bạn có chắc đây là thư mục Laravel?"
+    exit 1
+fi
+
 echo "🚀 Starting Laravel at http://localhost:$PORT ..."
-docker run --rm -v "$(pwd)":/app -w /app -p $PORT:8000 laravelsail/php82-composer:latest php artisan serve --host=0.0.0.0 --port=8000
+docker run --rm -v "$(pwd)":/app -w /app -p $PORT:8000 php:8.2-cli php artisan serve --host=0.0.0.0 --port=8000
