@@ -2,16 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\OrderController;
-
-Route::middleware(['auth'])->group(function() {
-    Route::resource('books', BookController::class);
-});
-
-Route::middleware(['auth'])->group(function() {
-    Route::resource('orders', OrderController::class)->only(['index','create','store','show']);
-});
 
 Route::get('/', function () {
     return view('welcome');
