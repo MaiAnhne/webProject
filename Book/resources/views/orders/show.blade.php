@@ -2,6 +2,10 @@
 <p>Tổng: ${{ $order->total }}</p>
 <ul>
     @foreach($order->items as $item)
-        <li>{{ $item->book->title }} - SL: {{ $item->quantity }} - Giá: ${{ $item->price }}</li>
+        <li>
+            Sách: {{ $item->book->title }} -
+            Số lượng: {{ $item->quantity }} -
+            Đơn giá: ${{ $item->price }}
+        </li>
     @endforeach
 </ul>
