@@ -19,5 +19,10 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bun',
             'email' => 'Bun@test.com',
         ]);
+        
+        $this->call([
+            BookSeeder::class,
+            OrderSeeder::class,
+        ]);
     }
 }
