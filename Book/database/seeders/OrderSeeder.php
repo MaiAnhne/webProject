@@ -12,15 +12,18 @@ class OrderSeeder extends Seeder
 {
     public function run()
     {
-        $user = User::first(); // Lấy user đầu tiên (hoặc tạo mới)
-
+        $user = User::first();
         if (!$user) {
             $user = User::factory()->create();
         }
 
         $books = Book::all();
 
-        // Tạo 3 Order mẫu
+        if ($books->count() < 2) {
+            $this->command->error('Cần ít nhất 2 Book trong database để tạo Order!');
+            return;
+        }
+
         for ($i = 0; $i < 3; $i++) {
             $order = Order::create([
                 'user_id' => $user->id,
@@ -29,7 +32,6 @@ class OrderSeeder extends Seeder
 
             $orderTotal = 0;
 
-            // Mỗi order có từ 2-3 sách
             foreach ($books->random(rand(2, 3)) as $book) {
                 $quantity = rand(1, 3);
                 $price = $book->price;
@@ -46,5 +48,7 @@ class OrderSeeder extends Seeder
 
             $order->update(['total' => $orderTotal]);
         }
+
+        $this->command->info('Đã tạo xong Orders + OrderItems thành công!');
     }
 }
