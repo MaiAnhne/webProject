@@ -1,14 +1,16 @@
 # 📚 Project Laravel Bookstore
 
-> 🧑‍💻 Một đồ án nhỏ sử dụng Laravel để xây dựng hệ thống quản lý bán sách.  
-> ✨ Sử dụng Breeze cho xác thực, Eloquent cho thao tác DB và Blade để xây dựng giao diện.  
+> 🧑‍💻 Dự án này xây dựng một ứng dụng web quản lý bán sách sử dụng Laravel – framework PHP hiện đại, mạnh mẽ và phổ biến.
+> Ứng dụng mô phỏng quy trình đặt hàng, quản lý sách và người dùng.
+> Hệ thống được thiết kế đầy đủ các chức năng xác thực, CRUD, xử lý đơn hàng, đảm bảo bảo mật và trải nghiệm người dùng rõ ràng.
 
+> ✨ Sử dụng Breeze cho xác thực, Eloquent cho thao tác DB và Blade để xây dựng giao diện.  
 ---
 
 ## 👩‍🎓 Thông tin sinh viên
 
-- **Họ và tên:** Mai Anh  
-- **Mã sinh viên:** 123456  
+- **Họ và tên:** Nguyễn Mai Anh  
+- **Mã sinh viên:** 23010490  
 
 ---
 
