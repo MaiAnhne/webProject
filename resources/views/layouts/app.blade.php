@@ -17,6 +17,11 @@
 </head>
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
 
+<!-- Header thông tin user -->
+<div class="bg-sky-400 text-white text-right px-6 py-2 text-lg font-medium">
+  Nguyễn Mai Anh <a href="/logout" class="ml-4 hover:underline">Đăng xuất</a>
+</div>
+
 <!-- Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
   <!-- Sidebar -->
