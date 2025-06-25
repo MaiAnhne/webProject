@@ -31,7 +31,7 @@
    ![Giao diện đăng nhập](login.jpg)
 
 2. Giao diện
-3. Xem đơn hàng và tổng tiền
+3. Đơn hàng và tổng tiền
    ![Đơn hàng](gio-hang.jpg)
 
 ###  Chưa hoàn thành (có thể làm thêm)
