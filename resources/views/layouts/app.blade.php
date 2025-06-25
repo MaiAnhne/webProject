@@ -23,7 +23,7 @@
   <aside class="w-full lg:w-64 p-4 border-b lg:border-b-0 lg:border-r bg-white">
     <!-- Logo -->
     <div class="mb-4 text-center">
-      <img src="/logo.png" alt="Hihi Shop Logo" class="mx-auto w-24 h-24 object-contain">
+      <img src="images/logoManh.jpg" alt="Hihi Shop Logo" class="mx-auto w-24 h-24 object-contain">
       <h1 class="text-xl font-bold text-blue-600 mt-2">Hihi Shop</h1>
     </div>
     <nav class="space-y-3 text-sm text-gray-700">
@@ -36,14 +36,13 @@
   </aside>
 
   <!-- Banner -->
-  <div class="flex-1 bg-blue-50 p-4">
-    <img src="/banner-sale.jpg" alt="Sale banner" class="w-full rounded shadow">
+  <div class="flex-1 bg-blue-50 p-4 flex flex-col justify-start">
+    <img src="images/banner.jpg" alt="Sale banner" class="w-full max-h-48 object-cover rounded shadow">
     <div class="mt-2 text-blue-800 font-semibold text-center">
       🎉 SĂN DEAL GIÁ SỐC – THỨ 4 HÀNG TUẦN 🔥 GIẢM ĐẾN 50%
     </div>
   </div>
 </div>
-
 <!-- Navigation Category Bar -->
 <nav class="bg-white shadow text-sm font-medium border-b">
   <div class="container mx-auto flex gap-4 overflow-x-auto px-4 py-3 whitespace-nowrap">
