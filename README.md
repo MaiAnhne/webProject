@@ -30,8 +30,9 @@
 1. Trang đăng nhập
    ![Giao diện đăng nhập](login.jpg)
 
-3. Giao diện
-4. Xem đơn hàng và tổng tiền
+2. Giao diện
+3. Xem đơn hàng và tổng tiền
+   ![Đơn hàng](don-hang.jpg)
 
 ###  Chưa hoàn thành (có thể làm thêm)
 
