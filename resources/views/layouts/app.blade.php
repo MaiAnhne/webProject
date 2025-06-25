@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hihi Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    body { font-family: 'Roboto', sans-serif; }
+    #cart-count { transition: background-color 0.3s, transform 0.3s; }
+    #cart-count.flash { background-color: #22c55e !important; transform: scale(1.2); }
     .flash {
       animation: flash 0.5s ease-in-out;
     }
@@ -16,18 +22,20 @@
   </style>
 </head>
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
-
-<!-- Header thông tin user -->
-@if (Auth::check())
-  <div class="bg-sky-400 text-white text-right px-6 py-2 text-lg font-medium">
-    {{ Auth::user()->name }}
-    <form method="POST" action="{{ route('logout') }}" class="inline">
-      @csrf
-      <button type="submit" class="ml-4 hover:underline">Đăng xuất</button>
-    </form>
-  </div>
-@endif
-
+  <header class="bg-cyan-500 text-white py-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold tracking-wide flex items-center gap-2">📚 <span>Hihi Shop</span></h1>
+      <input type="text" placeholder="Tìm kiếm sách..." class="w-1/2 px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-cyan-300">
+      <div class="flex items-center gap-4">
+        <span class="hidden sm:block">Nguyễn Mai Anh</span>
+        <a href="#" class="hover:underline hidden sm:block">Đăng xuất</a>
+        <div class="flex items-center gap-2 cursor-pointer relative" onclick="openCart()">
+          🛒 Giỏ hàng Add commentMore actions
+          <span id="cart-count" class="ml-1 px-2 py-1 bg-yellow-400 text-sm font-semibold rounded-full text-white shadow-md">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
 <!-- Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
   <!-- Sidebar -->
@@ -89,7 +97,7 @@
   </button>
 </div>
 
-<!-- Danh sách hiển thị sách (form cũ) -->
+<!-- Danh sách hiển thị sách -->
 <div class="pt-6">
   <div id="book-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-6"></div>
 </div>
