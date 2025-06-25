@@ -17,16 +17,13 @@
 </head>
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
 
-<!-- Logo + Sidebar + Banner -->
+<!-- Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
   <!-- Sidebar -->
-  <aside class="w-full lg:w-64 p-4 border-b lg:border-b-0 lg:border-r bg-white">
-    <!-- Logo -->
-    <div class="mb-4 text-center">
-      <img src="images/logoManh.jpg" alt="Hihi Shop Logo" class="mx-auto w-24 h-24 object-contain">
-      <h1 class="text-xl font-bold text-blue-600 mt-2">Hihi Shop</h1>
-    </div>
-    <nav class="space-y-3 text-sm text-gray-700">
+  <aside class="w-full lg:w-64 p-4 border-b lg:border-b-0 lg:border-r bg-white text-center">
+    <img src="/images/logoManh.jpg" alt="Hihi Shop Logo" class="mx-auto w-24 h-24 object-contain">
+    <h1 class="text-xl font-bold text-blue-600 mt-2 mb-4">Hihi Shop</h1>
+    <nav class="space-y-3 text-sm text-gray-700 text-left">
       <a href="#" onclick="filterTag('banchaytuan')" class="block hover:text-blue-600">🔥 Bán chạy tuần</a>
       <a href="#" onclick="filterTag('banchaythang')" class="block hover:text-blue-600">📈 Bán chạy tháng</a>
       <a href="#" onclick="filterTag('moixuatban')" class="block hover:text-blue-600">🆕 Mới xuất bản</a>
@@ -36,12 +33,14 @@
   </aside>
 
   <!-- Banner -->
-<div class="flex-1 bg-blue-50 p-4 flex flex-col justify-start">
-  <img src="/banner-sale.jpg" alt="Sale banner" class="w-full h-32 object-cover rounded shadow"> <!-- Giảm chiều cao -->
-  <div class="mt-2 text-blue-800 font-semibold text-center text-sm leading-tight">
-    🎉 SĂN DEAL GIÁ SỐC – THỨ 4 HÀNG TUẦN 🔥 GIẢM ĐẾN 50%
+  <div class="flex-1 bg-blue-50 p-4 flex flex-col justify-start">
+    <img src="/images/banner.jpg" alt="Sale banner" class="w-full max-h-48 object-cover rounded shadow">
+    <div class="mt-2 text-blue-800 font-semibold text-center">
+      🎉 SĂN DEAL GIÁ SỐC – THỨ 4 HÀNG TUẦN 🔥 GIẢM ĐẾN 50%
+    </div>
   </div>
 </div>
+
 <!-- Navigation Category Bar -->
 <nav class="bg-white shadow text-sm font-medium border-b">
   <div class="container mx-auto flex gap-4 overflow-x-auto px-4 py-3 whitespace-nowrap">
@@ -81,7 +80,7 @@
 
 <!-- Danh sách hiển thị sách -->
 <div class="pt-6">
-  <div id="book-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 py-6"></div>
+  <div id="book-list" class="flex flex-wrap justify-center gap-4 px-4 py-6"></div>
 </div>
 
 <script>
