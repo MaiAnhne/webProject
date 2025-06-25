@@ -28,8 +28,10 @@
 
 **Demo**
 1. Trang đăng nhập
-2. Giao diện
-3. Xem đơn hàng và tổng tiền
+   ![Giao diện đăng nhập](login.jpg)
+
+3. Giao diện
+4. Xem đơn hàng và tổng tiền
 
 ###  Chưa hoàn thành (có thể làm thêm)
 
