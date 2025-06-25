@@ -1,10 +1,10 @@
 # 📚 Project Laravel Bookstore
 
-> 🧑‍💻 Dự án này xây dựng một ứng dụng web quản lý bán sách sử dụng Laravel – framework PHP hiện đại, mạnh mẽ và phổ biến.
+>  Dự án này xây dựng một ứng dụng web quản lý bán sách sử dụng Laravel – framework PHP hiện đại, mạnh mẽ và phổ biến.
 > Ứng dụng mô phỏng quy trình đặt hàng, quản lý sách và người dùng.
 > Hệ thống được thiết kế đầy đủ các chức năng xác thực, CRUD, xử lý đơn hàng, đảm bảo bảo mật và trải nghiệm người dùng rõ ràng.
 
-> ✨ Sử dụng Breeze cho xác thực, Eloquent cho thao tác DB và Blade để xây dựng giao diện.  
+>  Sử dụng Breeze cho xác thực, Eloquent cho thao tác DB và Blade để xây dựng giao diện.  
 ---
 
 ## 👩‍🎓 Thông tin sinh viên
@@ -15,7 +15,6 @@
 ---
 
 ## Chức năng chính
-
 ###  Hoàn thành
 
 - [x] CRUD order: thêm / xoá 
@@ -28,17 +27,20 @@
 - [x] Bảo mật (CSRF, XSS, Auth, Validation...)
 
 **Demo**
-1. Trang đăng nhập
-   ![Giao diện đăng nhập](login.jpg)
+## Trang đăng nhập
+   ![Giao diện đăng nhập](Dn.jpg)
+   ![Lỗi nếu nhập mail không hợp lệ](Khople.jpg)
+   ![Giao diện đăng ký](Đk.jpg)
 
-2. Giao diện
-3. Đơn hàng và tổng tiền
-   ![Đơn hàng](gio-hang.jpg)
+## Giao diện điều hướng
+   ![Điều hướng danh mục ngang](Danhmuc1.jpg)
+   ![Điều hướng danh mục dọc](Danhmuc2.jpg)
+
+## Giỏ hàng
+   ![Xem giỏ, sản phẩm, tổng giá](gio-hang.jpg)
 
 ###  Chưa hoàn thành (có thể làm thêm)
-
 - [ ] Tích hợp thanh toán online (VNPay, Momo,...)
-- [ ] Upload ảnh sách lên cloud
 - [ ] Gửi mail xác nhận khi đặt đơn
 
 ## 🛠️ Công nghệ sử dụng
@@ -62,23 +64,3 @@
 
 ## Code chính
 ### Model Order
-
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Order extends Model
-{
-    use HasFactory;
-
-    protected $fillable = ['user_id', 'total'];
-
-    public function items()
-    {
-        return $this->hasMany(OrderItem::class);
-    }
-}
-
