@@ -1,17 +1,11 @@
-<!DOCTYPE html>More actions
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hihi Shop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Roboto', sans-serif; }
-    #cart-count { transition: background-color 0.3s, transform 0.3s; }
-    #cart-count.flash { background-color: #22c55e !important; transform: scale(1.2); }
     .flash {
       animation: flash 0.5s ease-in-out;
     }
@@ -22,20 +16,18 @@
   </style>
 </head>
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
-  <header class="bg-cyan-500 text-white py-4 shadow-md">
-    <div class="container mx-auto flex justify-between items-center px-4">
-      <h1 class="text-2xl font-bold tracking-wide flex items-center gap-2">📚 <span>Hihi Shop</span></h1>
-      <input type="text" placeholder="Tìm kiếm sách..." class="w-1/2 px-4 py-2 rounded border focus:outline-none focus:ring-2 focus:ring-cyan-300">
-      <div class="flex items-center gap-4">
-        <span class="hidden sm:block">Nguyễn Mai Anh</span>
-        <a href="#" class="hover:underline hidden sm:block">Đăng xuất</a>
-        <div class="flex items-center gap-2 cursor-pointer relative" onclick="openCart()">
-          🛒 Giỏ hàng Add commentMore actions
-          <span id="cart-count" class="ml-1 px-2 py-1 bg-yellow-400 text-sm font-semibold rounded-full text-white shadow-md">0</span>
-        </div>
-      </div>
-    </div>
-  </header>
+
+<!-- Header thông tin user -->
+@if (Auth::check())
+  <div class="bg-sky-400 text-white text-right px-6 py-2 text-lg font-medium">
+    {{ Auth::user()->name }}
+    <form method="POST" action="{{ route('logout') }}" class="inline">
+      @csrf
+      <button type="submit" class="ml-4 hover:underline">Đăng xuất</button>
+    </form>
+  </div>
+@endif
+
 <!-- Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
   <!-- Sidebar -->
@@ -67,7 +59,7 @@
     <a href="#" onclick="filterBooks('Thiếu Nhi')" class="hover:text-blue-600 font-semibold">👶 Sách Thiếu Nhi</a>
     <a href="#" onclick="filterBooks('Kỹ Năng')" class="hover:text-blue-600 font-semibold">💡 Sách Kỹ Năng - Sống Đẹp</a>
     <a href="#" onclick="filterBooks('Kinh Tế')" class="hover:text-blue-600 font-semibold">💰 Sách Kinh Tế</a>
-    <a href="#" onclick="filterBooks('Nuôi Dạy Con')" class="hover:text-blue-600 font-semibold">👪 Sách Nuôi Dạy Con</a>
+<a href="#" onclick="filterBooks('Nuôi Dạy Con')" class="hover:text-blue-600 font-semibold">👪 Sách Nuôi Dạy Con</a>
     <a href="#" onclick="renderBooks()" class="hover:text-blue-600 font-semibold">📚 Tất cả Sách</a>
   </div>
 </nav>
@@ -97,7 +89,7 @@
   </button>
 </div>
 
-<!-- Danh sách hiển thị sách -->
+<!-- Danh sách hiển thị sách (form cũ) -->
 <div class="pt-6">
   <div id="book-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-6"></div>
 </div>
@@ -113,7 +105,7 @@ const books = [
   { title: "Tư duy nhanh và chậm", price: "140000đ", img: "/images/tu_duy_nhanh_va_cham.jpg", category: "Kỹ Năng", tag: "tienganh" },
   { title: "Cha giàu cha nghèo", price: "99000đ", img: "/images/cha-giau-cha-ngheo.jpg", category: "Kinh Tế", tag: "tienganh" },
   { title: "Lược sử loài người", price: "150000đ", img: "/images/luoc-su.jpg", category: "Kinh Tế", tag: "tienganh" },
-  { title: "Thám tử Conan tập 1", price: "30000đ", img: "/images/conan-tap-1.jpg", category: "Thiếu Nhi", tag: "moixuatban,tiengviet" },
+{ title: "Thám tử Conan tập 1", price: "30000đ", img: "/images/conan-tap-1.jpg", category: "Thiếu Nhi", tag: "moixuatban,tiengviet" },
   { title: "Bố già", price: "125000đ", img: "/images/bo-gia.jpg", category: "Văn Học", tag: "tiengviet" },
   { title: "Atomic Habits", price: "135000đ", img: "/images/automic.jpg", category: "Kỹ Năng", tag: "tienganh" },
   { title: "Think and Grow Rich", price: "99000đ", img: "/images/think.jpg", category: "Kỹ Năng", tag: "tienganh" },
@@ -159,7 +151,7 @@ function filterTag(tag) {
 
 function searchBooks() {
   const keyword = document.getElementById("search-box").value.toLowerCase();
-  const filtered = books.filter(b => b.title.toLowerCase().includes(keyword));
+const filtered = books.filter(b => b.title.toLowerCase().includes(keyword));
   renderBooks(filtered);
 }
 
