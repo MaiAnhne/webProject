@@ -32,7 +32,7 @@
 
 2. Giao diện
 3. Xem đơn hàng và tổng tiền
-   ![Đơn hàng](don-hang.jpg)
+   ![Đơn hàng](gio-hang.jpg)
 
 ###  Chưa hoàn thành (có thể làm thêm)
 
