@@ -16,8 +16,7 @@
         <div class="container mx-auto flex items-center justify-between px-4 py-3">
             <!-- Logo -->
             <div class="flex items-center gap-2 text-2xl font-bold">
-                <img src="{{ asset('images/logoManh.jpg') }}" alt="Logo Manh" width="150">
-
+                <img src="/images/logo.png" alt="Hihi Shop Logo" class="w-8 h-8">
                 <span>Hihi Shop</span>
             </div>
 
@@ -51,11 +50,11 @@
             <!-- Sidebar -->
             <aside class="w-64 p-4 hidden lg:block">
                 <ul class="space-y-2 text-sm text-gray-700">
-                    <li><a href="#" class="hover:text-blue-600">Sách bán chạy trong tuần</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Sách bán chạy trong tháng</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Sách mới xuất bản</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Sách Tiếng Việt</a></li>
-                    <li><a href="#" class="hover:text-blue-600">Sách Tiếng Anh</a></li>
+                    <li><a href="#" onclick="filterBooks('Bán chạy tuần')" class="hover:text-blue-600">Sách bán chạy trong tuần</a></li>
+                    <li><a href="#" onclick="filterBooks('Bán chạy tháng')" class="hover:text-blue-600">Sách bán chạy trong tháng</a></li>
+                    <li><a href="#" onclick="filterBooks('Mới xuất bản')" class="hover:text-blue-600">Sách mới xuất bản</a></li>
+                    <li><a href="#" onclick="filterBooks('Tiếng Việt')" class="hover:text-blue-600">Sách Tiếng Việt</a></li>
+                    <li><a href="#" onclick="filterBooks('Tiếng Anh')" class="hover:text-blue-600">Sách Tiếng Anh</a></li>
                 </ul>
             </aside>
 
@@ -84,18 +83,7 @@
     <!-- Product section mockup -->
     <main class="container mx-auto px-4 py-6">
         <h2 class="text-xl font-semibold mb-4">📚 Sách Mới</h2>
-        <div id="book-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            <template id="book-card-template">
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="" alt="book" class="w-full h-48 object-cover">
-                    <div class="p-3">
-                        <h3 class="text-sm font-semibold"></h3>
-                        <p class="text-red-500 font-bold mt-1"></p>
-                        <button class="mt-2 w-full bg-blue-500 text-white text-sm py-1 rounded hover:bg-blue-600">Thêm vào giỏ</button>
-                    </div>
-                </div>
-            </template>
-        </div>
+        <div id="book-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
     </main>
 
     <!-- Footer -->
@@ -106,27 +94,25 @@
     <!-- Filtering logic (functional) -->
     <script>
         const books = [
-            // Văn Học
             { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79.000đ", img: "/books/book1.jpg", category: "Văn Học" },
-            { title: "Cánh đồng bất tận", price: "85.000đ", img: "/books/book7.jpg", category: "Văn Học" },
-            { title: "Người lái đò sông Đà", price: "69.000đ", img: "/books/book8.jpg", category: "Văn Học" },
-
-            // Kỹ Năng
-            { title: "Đắc Nhân Tâm", price: "98.000đ", img: "/books/book2.jpg", category: "Kỹ Năng" },
+            { title: "Cánh đồng bất tận", price: "85.000đ", img: "/books/book2.jpg", category: "Văn Học" },
+            { title: "Người lái đò sông Đà", price: "69.000đ", img: "/books/book3.jpg", category: "Văn Học" },
+            { title: "Đắc Nhân Tâm", price: "98.000đ", img: "/books/book4.jpg", category: "Kỹ Năng" },
             { title: "Người bán hàng vĩ đại nhất", price: "86.000đ", img: "/books/book5.jpg", category: "Kỹ Năng" },
-            { title: "Tư duy nhanh và chậm", price: "140.000đ", img: "/books/book9.jpg", category: "Kỹ Năng" },
-
-            // Thiếu Nhi
-            { title: "Harry Potter và Hòn Đá Phù Thủy", price: "120.000đ", img: "/books/book3.jpg", category: "Thiếu Nhi" },
-            { title: "Doraemon - Tập 1", price: "25.000đ", img: "/books/book10.jpg", category: "Thiếu Nhi" },
-
-            // Kinh Tế
-            { title: "Pháo đài số", price: "180.000đ", img: "/books/book4.jpg", category: "Kinh Tế" },
-            { title: "Cha giàu cha nghèo", price: "99.000đ", img: "/books/book11.jpg", category: "Kinh Tế" },
-
-            // Nuôi Dạy Con
-            { title: "Nuôi con không phải cuộc chiến", price: "105.000đ", img: "/books/book6.jpg", category: "Nuôi Dạy Con" },
-            { title: "Cha mẹ Nhật dạy con tự lập", price: "110.000đ", img: "/books/book12.jpg", category: "Nuôi Dạy Con" }
+            { title: "Tư duy nhanh và chậm", price: "140.000đ", img: "/books/book6.jpg", category: "Kinh Tế" },
+            { title: "Harry Potter và Hòn Đá Phù Thủy", price: "120.000đ", img: "/books/book7.jpg", category: "Thiếu Nhi" },
+            { title: "Doraemon - Tập 1", price: "25.000đ", img: "/books/book8.jpg", category: "Thiếu Nhi" },
+            { title: "Pháo đài số", price: "180.000đ", img: "/books/book9.jpg", category: "Kinh Tế" },
+            { title: "Cha giàu cha nghèo", price: "99.000đ", img: "/books/book10.jpg", category: "Kinh Tế" },
+            { title: "Nuôi con không phải cuộc chiến", price: "105.000đ", img: "/books/book11.jpg", category: "Nuôi Dạy Con" },
+            { title: "Cha mẹ Nhật dạy con tự lập", price: "110.000đ", img: "/books/book12.jpg", category: "Nuôi Dạy Con" },
+            { title: "Lược sử loài người", price: "150.000đ", img: "/books/book7.jpg", category: "Bán chạy tuần" },
+            { title: "Think and Grow Rich", price: "135.000đ", img: "/books/book8.jpg", category: "Bán chạy tháng" },
+            { title: "Hành tinh của một kẻ nghĩ nhiều", price: "99.000đ", img: "/books/book9.jpg", category: "Mới xuất bản" },
+            { title: "Bí mật của Naoko", price: "110.000đ", img: "/books/book10.jpg", category: "Tiếng Việt" },
+            { title: "The Alchemist", price: "125.000đ", img: "/books/book11.jpg", category: "Tiếng Anh" },
+            { title: "7 Thói quen hiệu quả", price: "145.000đ", img: "/books/book12.jpg", category: "Kỹ Năng, Bán chạy tuần" },
+            { title: "Sapiens", price: "170.000đ", img: "/books/book13.jpg", category: "Mới xuất bản, Kinh Tế" },
         ];
 
         function renderBooks(filtered = books) {
