@@ -36,11 +36,10 @@
   </aside>
 
   <!-- Banner -->
-  <div class="flex-1 bg-blue-50 p-4 flex flex-col justify-start">
-    <img src="images/banner.jpg" alt="Sale banner" class="w-full max-h-48 object-cover rounded shadow">
-    <div class="mt-2 text-blue-800 font-semibold text-center">
-      🎉 SĂN DEAL GIÁ SỐC – THỨ 4 HÀNG TUẦN 🔥 GIẢM ĐẾN 50%
-    </div>
+<div class="flex-1 bg-blue-50 p-4 flex flex-col justify-start">
+  <img src="/banner-sale.jpg" alt="Sale banner" class="w-full h-32 object-cover rounded shadow"> <!-- Giảm chiều cao -->
+  <div class="mt-2 text-blue-800 font-semibold text-center text-sm leading-tight">
+    🎉 SĂN DEAL GIÁ SỐC – THỨ 4 HÀNG TUẦN 🔥 GIẢM ĐẾN 50%
   </div>
 </div>
 <!-- Navigation Category Bar -->
@@ -88,28 +87,28 @@
 <script>
 const cart = [];
 const books = [
-  { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79000đ", img: "", category: "Văn Học", tag: "banchaytuan,tiengviet" },
-  { title: "Cánh đồng bất tận", price: "85000đ", img: "", category: "Văn Học", tag: "tiengviet" },
-  { title: "Người lái đò sông Đà", price: "69000đ", img: "", category: "Văn Học", tag: "tiengviet" },
-  { title: "Đắc Nhân Tâm", price: "98000đ", img: "", category: "Kỹ Năng", tag: "banchaythang,tiengviet" },
-  { title: "Người bán hàng vĩ đại nhất", price: "86000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
-  { title: "Tư duy nhanh và chậm", price: "140000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
-  { title: "Cha giàu cha nghèo", price: "99000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
-  { title: "Lược sử loài người", price: "150000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
-  { title: "Thám tử Conan tập 1", price: "30000đ", img: "", category: "Thiếu Nhi", tag: "moixuatban,tiengviet" },
-  { title: "Bố già", price: "125000đ", img: "", category: "Văn Học", tag: "tiengviet" },
-  { title: "Atomic Habits", price: "135000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
-  { title: "Think and Grow Rich", price: "99000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
-  { title: "Doraemon tuyển tập đặc biệt", price: "55000đ", img: "", category: "Thiếu Nhi", tag: "tiengviet" },
-  { title: "Hành tinh của một kẻ nghĩ nhiều", price: "89000đ", img: "", category: "Văn Học", tag: "tiengviet" },
-  { title: "Sherlock Holmes toàn tập", price: "199000đ", img: "", category: "Văn Học", tag: "tienganh" },
-  { title: "Chuyện con mèo dạy hải âu bay", price: "45000đ", img: "", category: "Thiếu Nhi", tag: "tiengviet" },
-  { title: "Nhà giả kim", price: "105000đ", img: "", category: "Văn Học", tag: "tienganh" },
-  { title: "Tuổi trẻ đáng giá bao nhiêu", price: "99000đ", img: "", category: "Kỹ Năng", tag: "moixuatban,tiengviet" },
-  { title: "7 Thói quen để thành đạt", price: "115000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
-  { title: "Sapiens: Lược sử loài người", price: "175000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
-  { title: "Dạy Con Làm Giàu", price: "85000đ", img: "", category: "Nuôi Dạy Con", tag: "tiengviet" },
-  { title: "Nuôi Dạy Con Kiểu Nhật", price: "99000đ", img: "", category: "Nuôi Dạy Con", tag: "tiengviet" }
+  { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79000đ", img: "/images/toi_thay_hoa_vang.jpg", category: "Văn Học", tag: "banchaytuan,tiengviet" },
+  { title: "Cánh đồng bất tận", price: "85000đ", img: "/images/canh-dong-bat-tan.jpg", category: "Văn Học", tag: "tiengviet" },
+  { title: "Người lái đò sông Đà", price: "69000đ", img: "/images/nguoi-lai-do.jpg", category: "Văn Học", tag: "tiengviet" },
+  { title: "Đắc Nhân Tâm", price: "98000đ", img: "/images/Dac-nhan-tam.jpg", category: "Kỹ Năng", tag: "banchaythang,tiengviet" },
+  { title: "Người bán hàng vĩ đại nhất", price: "86000đ", img: "/images/nguoi-ban-hang-vi-dai-nhat.jpg", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Tư duy nhanh và chậm", price: "140000đ", img: "/images/tu_duy_nhanh_va_cham.jpg", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Cha giàu cha nghèo", price: "99000đ", img: "/images/cha-giau-cha-ngheo.jpg", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Lược sử loài người", price: "150000đ", img: "/images/luoc-su.jpg", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Thám tử Conan tập 1", price: "30000đ", img: "/images/conan-tap-1.jpg", category: "Thiếu Nhi", tag: "moixuatban,tiengviet" },
+  { title: "Bố già", price: "125000đ", img: "/images/bo-gia.jpg", category: "Văn Học", tag: "tiengviet" },
+  { title: "Atomic Habits", price: "135000đ", img: "/images/automic.jpg", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Think and Grow Rich", price: "99000đ", img: "/images/think.jpg", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Doraemon tuyển tập đặc biệt", price: "55000đ", img: "/images/doremon.jpg", category: "Thiếu Nhi", tag: "tiengviet" },
+  { title: "Hành tinh của một kẻ nghĩ nhiều", price: "89000đ", img: "/images/nghi-nhieu.jpg", category: "Văn Học", tag: "tiengviet" },
+  { title: "Sherlock Holmes toàn tập", price: "199000đ", img: "/images/sl-holmes.jpg", category: "Văn Học", tag: "tienganh" },
+  { title: "Chuyện con mèo dạy hải âu bay", price: "45000đ", img: "/images/meo.jpg", category: "Thiếu Nhi", tag: "tiengviet" },
+  { title: "Nhà giả kim", price: "105000đ", img: "/images/nha-gia-kim.jpg", category: "Văn Học", tag: "tienganh" },
+  { title: "Tuổi trẻ đáng giá bao nhiêu", price: "99000đ", img: "/images/tuoi-tre.jpg", category: "Kỹ Năng", tag: "moixuatban,tiengviet" },
+  { title: "7 Thói quen để thành đạt", price: "115000đ", img: "/images/7thoiquentre.jpg", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Sapiens: Lược sử loài người", price: "175000đ", img: "/images/sapiens.jpg", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Dạy Con Làm Giàu", price: "85000đ", img: "/images/day-con-lam-giau.jpg", category: "Nuôi Dạy Con", tag: "tiengviet" },
+  { title: "Nuôi Dạy Con Kiểu Nhật", price: "99000đ", img: "/images/nuoidayconkieunhatban.jpg", category: "Nuôi Dạy Con", tag: "tiengviet" }
 ];
 
 function renderBooks(filtered = books) {
