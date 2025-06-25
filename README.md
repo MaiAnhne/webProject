@@ -15,8 +15,9 @@
 ---
 
 ## Sơ đồ cấu trúc
-
+![Sơ đồ cấu trúc](.jpg)
 ## Sơ đồ thuật toán tính tổng tiền trong giỏ hàng
+![Sơ đồ thuật toán](.jpg)
 
 ## Chức năng chính
 ###  Hoàn thành
