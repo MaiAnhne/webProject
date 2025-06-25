@@ -25,8 +25,8 @@
       <a href="#" onclick="filterBooks('Bán chạy tuần')" class="block hover:text-blue-600">🔥 Bán chạy tuần</a>
       <a href="#" onclick="filterBooks('Bán chạy tháng')" class="block hover:text-blue-600">📈 Bán chạy tháng</a>
       <a href="#" onclick="filterBooks('Mới xuất bản')" class="block hover:text-blue-600">🆕 Mới xuất bản</a>
-      <a href="#" onclick="filterBooks('Tiếng Việt')" class="block hover:text-blue-600">vn Sách Tiếng Việt</a>
-      <a href="#" onclick="filterBooks('Tiếng Anh')" class="block hover:text-blue-600">us Sách Tiếng Anh</a>
+      <a href="#" onclick="filterBooks('Tiếng Việt')" class="block hover:text-blue-600">🇻🇳 Sách Tiếng Việt</a>
+      <a href="#" onclick="filterBooks('Tiếng Anh')" class="block hover:text-blue-600">🇺🇸 Sách Tiếng Anh</a>
     </nav>
   </aside>
 
@@ -57,7 +57,7 @@
          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-300">
 </div>
 
-<!-- Slide Cart Layout ở đây -->
+<!-- Slide Cart Layout -->
 <div id="slide-cart" class="fixed top-0 right-0 w-80 bg-white shadow-lg h-full p-4 transform translate-x-full transition duration-300 z-50">
   <h2 class="text-lg font-semibold mb-4">🛒 Giỏ hàng</h2>
   <ul id="slide-cart-items" class="space-y-2 mb-4"></ul>
@@ -83,7 +83,6 @@
 
 <script>
 const cart = [];
-
 const books = [
   { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79000đ", img: "", category: "Văn Học" },
   { title: "Cánh đồng bất tận", price: "85000đ", img: "", category: "Văn Học" },
@@ -123,6 +122,11 @@ function renderBooks(filtered = books) {
     `;
     list.appendChild(card);
   });
+}
+
+function filterBooks(category) {
+  const filtered = books.filter(b => b.category === category);
+  renderBooks(filtered);
 }
 
 function searchBooks() {
@@ -206,4 +210,3 @@ renderBooks();
 </script>
 </body>
 </html>
-
