@@ -18,9 +18,15 @@
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
 
 <!-- Header thông tin user -->
-<div class="bg-sky-400 text-white text-right px-6 py-2 text-lg font-medium">
-  Nguyễn Mai Anh <a href="/logout" class="ml-4 hover:underline">Đăng xuất</a>
-</div>
+@if (Auth::check())
+  <div class="bg-sky-400 text-white text-right px-6 py-2 text-lg font-medium">
+    {{ Auth::user()->name }}
+    <form method="POST" action="{{ route('logout') }}" class="inline">
+      @csrf
+      <button type="submit" class="ml-4 hover:underline">Đăng xuất</button>
+    </form>
+  </div>
+@endif
 
 <!-- Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
@@ -83,9 +89,9 @@
   </button>
 </div>
 
-<!-- Danh sách hiển thị sách -->
+<!-- Danh sách hiển thị sách (form cũ) -->
 <div class="pt-6">
-  <div id="book-list" class="flex flex-wrap justify-center gap-4 px-4 py-6"></div>
+  <div id="book-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-6"></div>
 </div>
 
 <script>
