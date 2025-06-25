@@ -16,7 +16,8 @@
         <div class="container mx-auto flex items-center justify-between px-4 py-3">
             <!-- Logo -->
             <div class="flex items-center gap-2 text-2xl font-bold">
-                <img src="/logo-hihi.png" alt="Hihi Shop Logo" class="w-8 h-8">
+                <img src="{{ asset('images/logoManh.jpg') }}" alt="Logo Manh" width="150">
+
                 <span>Hihi Shop</span>
             </div>
 
