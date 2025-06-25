@@ -22,11 +22,11 @@
   <!-- Sidebar -->
   <aside class="w-full lg:w-64 p-4 border-b lg:border-b-0 lg:border-r bg-white">
     <nav class="space-y-3 text-sm text-gray-700">
-      <a href="#" onclick="filterBooks('Bán chạy tuần')" class="block hover:text-blue-600">🔥 Bán chạy tuần</a>
-      <a href="#" onclick="filterBooks('Bán chạy tháng')" class="block hover:text-blue-600">📈 Bán chạy tháng</a>
-      <a href="#" onclick="filterBooks('Mới xuất bản')" class="block hover:text-blue-600">🆕 Mới xuất bản</a>
-      <a href="#" onclick="filterBooks('Tiếng Việt')" class="block hover:text-blue-600">🇻🇳 Sách Tiếng Việt</a>
-      <a href="#" onclick="filterBooks('Tiếng Anh')" class="block hover:text-blue-600">🇺🇸 Sách Tiếng Anh</a>
+      <a href="#" onclick="filterTag('banchaytuan')" class="block hover:text-blue-600">🔥 Bán chạy tuần</a>
+      <a href="#" onclick="filterTag('banchaythang')" class="block hover:text-blue-600">📈 Bán chạy tháng</a>
+      <a href="#" onclick="filterTag('moixuatban')" class="block hover:text-blue-600">🆕 Mới xuất bản</a>
+      <a href="#" onclick="filterTag('tiengviet')" class="block hover:text-blue-600">🇻🇳 Sách Tiếng Việt</a>
+      <a href="#" onclick="filterTag('tienganh')" class="block hover:text-blue-600">🇺🇸 Sách Tiếng Anh</a>
     </nav>
   </aside>
 
@@ -84,26 +84,28 @@
 <script>
 const cart = [];
 const books = [
-  { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79000đ", img: "", category: "Văn Học" },
-  { title: "Cánh đồng bất tận", price: "85000đ", img: "", category: "Văn Học" },
-  { title: "Người lái đò sông Đà", price: "69000đ", img: "", category: "Văn Học" },
-  { title: "Đắc Nhân Tâm", price: "98000đ", img: "", category: "Kỹ Năng" },
-  { title: "Người bán hàng vĩ đại nhất", price: "86000đ", img: "", category: "Kỹ Năng" },
-  { title: "Tư duy nhanh và chậm", price: "140000đ", img: "", category: "Kỹ Năng" },
-  { title: "Cha giàu cha nghèo", price: "99000đ", img: "", category: "Kinh Tế" },
-  { title: "Lược sử loài người", price: "150000đ", img: "", category: "Kinh Tế" },
-  { title: "Thám tử Conan tập 1", price: "30000đ", img: "", category: "Thiếu Nhi" },
-  { title: "Bố già", price: "125000đ", img: "", category: "Văn Học" },
-  { title: "Atomic Habits", price: "135000đ", img: "", category: "Kỹ Năng" },
-  { title: "Think and Grow Rich", price: "99000đ", img: "", category: "Kỹ Năng" },
-  { title: "Doraemon tuyển tập đặc biệt", price: "55000đ", img: "", category: "Thiếu Nhi" },
-  { title: "Hành tinh của một kẻ nghĩ nhiều", price: "89000đ", img: "", category: "Văn Học" },
-  { title: "Sherlock Holmes toàn tập", price: "199000đ", img: "", category: "Văn Học" },
-  { title: "Chuyện con mèo dạy hải âu bay", price: "45000đ", img: "", category: "Thiếu Nhi" },
-  { title: "Nhà giả kim", price: "105000đ", img: "", category: "Văn Học" },
-  { title: "Tuổi trẻ đáng giá bao nhiêu", price: "99000đ", img: "", category: "Kỹ Năng" },
-  { title: "7 Thói quen để thành đạt", price: "115000đ", img: "", category: "Kỹ Năng" },
-  { title: "Sapiens: Lược sử loài người", price: "175000đ", img: "", category: "Kinh Tế" }
+  { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79000đ", img: "", category: "Văn Học", tag: "banchaytuan,tiengviet" },
+  { title: "Cánh đồng bất tận", price: "85000đ", img: "", category: "Văn Học", tag: "tiengviet" },
+  { title: "Người lái đò sông Đà", price: "69000đ", img: "", category: "Văn Học", tag: "tiengviet" },
+  { title: "Đắc Nhân Tâm", price: "98000đ", img: "", category: "Kỹ Năng", tag: "banchaythang,tiengviet" },
+  { title: "Người bán hàng vĩ đại nhất", price: "86000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Tư duy nhanh và chậm", price: "140000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Cha giàu cha nghèo", price: "99000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Lược sử loài người", price: "150000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Thám tử Conan tập 1", price: "30000đ", img: "", category: "Thiếu Nhi", tag: "moixuatban,tiengviet" },
+  { title: "Bố già", price: "125000đ", img: "", category: "Văn Học", tag: "tiengviet" },
+  { title: "Atomic Habits", price: "135000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Think and Grow Rich", price: "99000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Doraemon tuyển tập đặc biệt", price: "55000đ", img: "", category: "Thiếu Nhi", tag: "tiengviet" },
+  { title: "Hành tinh của một kẻ nghĩ nhiều", price: "89000đ", img: "", category: "Văn Học", tag: "tiengviet" },
+  { title: "Sherlock Holmes toàn tập", price: "199000đ", img: "", category: "Văn Học", tag: "tienganh" },
+  { title: "Chuyện con mèo dạy hải âu bay", price: "45000đ", img: "", category: "Thiếu Nhi", tag: "tiengviet" },
+  { title: "Nhà giả kim", price: "105000đ", img: "", category: "Văn Học", tag: "tienganh" },
+  { title: "Tuổi trẻ đáng giá bao nhiêu", price: "99000đ", img: "", category: "Kỹ Năng", tag: "moixuatban,tiengviet" },
+  { title: "7 Thói quen để thành đạt", price: "115000đ", img: "", category: "Kỹ Năng", tag: "tienganh" },
+  { title: "Sapiens: Lược sử loài người", price: "175000đ", img: "", category: "Kinh Tế", tag: "tienganh" },
+  { title: "Dạy Con Làm Giàu", price: "85000đ", img: "", category: "Nuôi Dạy Con", tag: "tiengviet" },
+  { title: "Nuôi Dạy Con Kiểu Nhật", price: "99000đ", img: "", category: "Nuôi Dạy Con", tag: "tiengviet" }
 ];
 
 function renderBooks(filtered = books) {
@@ -126,6 +128,11 @@ function renderBooks(filtered = books) {
 
 function filterBooks(category) {
   const filtered = books.filter(b => b.category === category);
+  renderBooks(filtered);
+}
+
+function filterTag(tag) {
+  const filtered = books.filter(b => (b.tag || "").split(",").includes(tag));
   renderBooks(filtered);
 }
 
