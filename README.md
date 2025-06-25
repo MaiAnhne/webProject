@@ -11,8 +11,12 @@
 
 - **Họ và tên:** Nguyễn Mai Anh  
 - **Mã sinh viên:** 23010490  
-
+- **Link repo:** https://github.com/MaiAnhne/webProject.git
 ---
+
+## Sơ đồ cấu trúc
+
+## Sơ đồ thuật toán tính tổng tiền trong giỏ hàng
 
 ## Chức năng chính
 ###  Hoàn thành
