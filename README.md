@@ -20,6 +20,7 @@
 
 - [x] CRUD sách: thêm / sửa / xoá 
 - [x] Đăng ký / đăng nhập bằng Laravel Breeze
+- [x] Điều hướng các danh mục sách 
 - [x] Đặt đơn hàng với nhiều sách và số lượng
 - [x] Tính tổng tiền đơn hàng 
 - [x] Danh sách đơn hàng người dùng đã tạo
