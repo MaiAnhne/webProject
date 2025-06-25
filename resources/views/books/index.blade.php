@@ -1,46 +1,46 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            📚 Danh sách sách
+        </h2>
+    </x-slot>
 
-@section('content')
-<h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">Danh sách sách</h1>
+    <!-- Breadcrumb -->
+    <div class="mt-2 mb-4 text-sm text-gray-600">
+        <a href="/" class="hover:underline text-blue-600">Trang chủ</a> / 
+        <span class="text-gray-800 font-medium">Danh sách sách</span>
+    </div>
 
-<a href="{{ route('books.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow mb-4 inline-block">
-    ➕ Thêm mới
-</a>
+    <!-- Nút thêm sách mới -->
+    @can('create', App\Models\Book::class)
+        <div class="mb-4">
+            <a href="{{ route('books.create') }}" class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded shadow">
+                ➕ Thêm sách
+            </a>
+        </div>
+    @endcan
 
-<div class="overflow-x-auto bg-white dark:bg-gray-800 shadow rounded-lg">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <thead class="bg-gray-50 dark:bg-gray-700">
-            <tr>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">#</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Ảnh</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Tiêu đề</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Tác giả</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Giá</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700 dark:text-gray-300">Hành động</th>
-            </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
-            @foreach($books as $book)
-            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                <td class="px-4 py-2">{{ $book->id }}</td>
-                <td class="px-4 py-2">
-                    <img src="{{ $book->image_url }}" alt="{{ $book->title }}" class="w-12 h-16 object-cover rounded" />
-                </td>
-                <td class="px-4 py-2">{{ $book->title }}</td>
-                <td class="px-4 py-2">{{ $book->author }}</td>
-                <td class="px-4 py-2 text-green-600">{{ number_format($book->price, 0, ',', '.') }}đ</td>
-                <td class="px-4 py-2 space-x-2">
-                    <a href="{{ route('books.show', $book) }}" class="text-blue-600 hover:underline">Xem</a>
-                    <a href="{{ route('books.edit', $book) }}" class="text-yellow-500 hover:underline">Sửa</a>
-                    <form action="{{ route('books.destroy', $book) }}" method="POST" class="inline">
-                        @csrf
-                        @method('DELETE')
-                        <button onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="text-red-600 hover:underline">Xóa</button>
+    <!-- Grid danh sách sách -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @forelse ($books as $book)
+            <div class="bg-white rounded shadow p-4 flex flex-col">
+                <img src="{{ $book->image ?? '/placeholder-book.png' }}" alt="{{ $book->title }}" class="w-full h-48 object-cover rounded mb-3">
+                <h3 class="text-md font-semibold text-gray-800 mb-1">{{ $book->title }}</h3>
+                <p class="text-sm text-gray-600 italic">{{ $book->author }}</p>
+                <p class="text-red-600 font-bold mt-2">{{ number_format($book->price, 0, ',', '.') }} đ</p>
+
+                <div class="mt-auto flex justify-between items-center">
+                    <a href="{{ route('books.show', $book) }}" class="text-sm text-blue-600 hover:underline">Chi tiết</a>
+                    <form action="{{ route('orders.create') }}" method="GET">
+                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                        <button class="text-white bg-yellow-400 hover:bg-yellow-500 px-3 py-1 rounded text-sm">
+                            🛒 Thêm
+                        </button>
                     </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-@endsection
+                </div>
+            </div>
+        @empty
+            <p class="text-gray-600 col-span-4">Không có sách nào.</p>
+        @endforelse
+    </div>
+</x-app-layout>
