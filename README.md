@@ -14,20 +14,22 @@
 
 ---
 
-## 🚀 Chức năng chính
+## Chức năng chính
 
-### ✅ Hoàn thành
+###  Hoàn thành
 
-- [x] CRUD sách: thêm / sửa / xoá / xem chi tiết
+- [x] CRUD sách: thêm / sửa / xoá 
 - [x] Đăng ký / đăng nhập bằng Laravel Breeze
 - [x] Đặt đơn hàng với nhiều sách và số lượng
-- [x] Tính tổng tiền đơn hàng theo quantity x price
-- [x] Trang chi tiết đơn hàng đẹp, có nút quay về
+- [x] Tính tổng tiền đơn hàng 
 - [x] Danh sách đơn hàng người dùng đã tạo
 - [x] Responsive
 - [x] Bảo mật (CSRF, XSS, Auth, Validation...)
 
-### 🧩 Chưa hoàn thành (có thể làm thêm)
+1. Trang đăng nhập
+2. Giao diện
+
+###  Chưa hoàn thành (có thể làm thêm)
 
 - [ ] Tích hợp thanh toán online (VNPay, Momo,...)
 - [ ] Upload ảnh sách lên cloud
@@ -51,3 +53,5 @@
 - Auth	Route dùng middleware auth
 - Validation	Sử dụng $request->validate()
 - Session	Laravel quản lý session mặc định
+
+## Code chính
