@@ -38,7 +38,9 @@
    ![Giao diện đăng ký](Đk.jpg)
 
 ## Giao diện điều hướng
+- Khi bấm vào mục sách văn học sẽ lọc ra những sách thuộc lĩnh vực văn học
    ![Điều hướng danh mục ngang](Danhmuc1.jpg)
+- Khi bấm vào mục mới xuất bản sẽ lọc ra những sách như vậy
    ![Điều hướng danh mục dọc](Danhmuc2.jpg)
 
 ## Giỏ hàng
