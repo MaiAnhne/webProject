@@ -17,10 +17,15 @@
 </head>
 <body class="bg-gradient-to-b from-cyan-100 to-white font-['Roboto']">
 
-<!-- Sidebar + Banner + Navigation -->
+<!-- Logo + Sidebar + Banner -->
 <div class="flex flex-col lg:flex-row">
   <!-- Sidebar -->
   <aside class="w-full lg:w-64 p-4 border-b lg:border-b-0 lg:border-r bg-white">
+    <!-- Logo -->
+    <div class="mb-4 text-center">
+      <img src="/logo.png" alt="Hihi Shop Logo" class="mx-auto w-24 h-24 object-contain">
+      <h1 class="text-xl font-bold text-blue-600 mt-2">Hihi Shop</h1>
+    </div>
     <nav class="space-y-3 text-sm text-gray-700">
       <a href="#" onclick="filterTag('banchaytuan')" class="block hover:text-blue-600">🔥 Bán chạy tuần</a>
       <a href="#" onclick="filterTag('banchaythang')" class="block hover:text-blue-600">📈 Bán chạy tháng</a>
