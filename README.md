@@ -26,8 +26,10 @@
 - [x] Responsive
 - [x] Bảo mật (CSRF, XSS, Auth, Validation...)
 
+**Demo**
 1. Trang đăng nhập
 2. Giao diện
+3. Xem đơn hàng và tổng tiền
 
 ###  Chưa hoàn thành (có thể làm thêm)
 
