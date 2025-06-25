@@ -72,3 +72,14 @@
 
 ## Code chính
 ### Model Order
+![Md1](Order.jpg)
+### Model Book
+![Md2](Book.jpg)
+### Model OrderItem
+![Md3](OrderItem.jpg)
+### OrderController
+![he](OL1.jpg)
+![he](OL2.jpg)
+![he](OL3.jpg)
+### Web.php
+![OK](webphp.jpg)
