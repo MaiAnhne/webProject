@@ -9,6 +9,29 @@
     <!-- Fonts & Tailwind -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        #cart {
+            border-top: 2px solid #ccc;
+            padding-top: 1rem;
+        }
+        #cart-items li {
+            transition: background-color 0.2s ease;
+        }
+        #cart-items li:hover {
+            background-color: #fef2f2;
+        }
+        #cart-count {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #cart-count.flash {
+            background-color: #22c55e !important;
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 <body class="bg-white font-['Roboto']">
     <!-- Header -->
@@ -37,8 +60,8 @@
                     <a href="{{ route('login') }}" class="hover:underline">Đăng nhập</a>
                     <a href="{{ route('register') }}" class="hover:underline">Đăng ký</a>
                 @endauth
-                <a href="#" class="flex items-center hover:underline">
-                    🛒 Giỏ hàng <span class="ml-1 bg-yellow-400 text-black px-2 rounded">2</span>
+                <a href="#" onclick="toggleCart()" class="flex items-center hover:underline">
+                    🛒 Giỏ hàng <span class="ml-1 bg-yellow-400 text-black px-2 rounded" id="cart-count">0</span>
                 </a>
             </div>
         </div>
@@ -84,6 +107,12 @@
     <main class="container mx-auto px-4 py-6">
         <h2 class="text-xl font-semibold mb-4">📚 Sách Mới</h2>
         <div id="book-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
+
+        <div id="cart" class="mt-8">
+            <h3 class="text-lg font-semibold mb-2">🛒 Giỏ hàng</h3>
+            <ul id="cart-items" class="space-y-2"></ul>
+            <p id="empty-cart-msg" class="text-gray-500 italic">Chưa có sản phẩm nào trong giỏ hàng.</p>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -91,7 +120,7 @@
         © {{ date('Y') }} Hihi Shop. All rights reserved.
     </footer>
 
-    <!-- Filtering logic (functional) -->
+    <!-- Scripts -->
     <script>
         const books = [
             { title: "Tôi thấy hoa vàng trên cỏ xanh", price: "79.000đ", img: "/books/book1.jpg", category: "Văn Học" },
@@ -115,6 +144,9 @@
             { title: "Sapiens", price: "170.000đ", img: "/books/book13.jpg", category: "Mới xuất bản, Kinh Tế" },
         ];
 
+
+        const cart = [];
+
         function renderBooks(filtered = books) {
             const list = document.getElementById("book-list");
             list.innerHTML = "";
@@ -126,11 +158,49 @@
                     <div class="p-3">
                         <h3 class="text-sm font-semibold">${b.title}</h3>
                         <p class="text-red-500 font-bold mt-1">${b.price}</p>
-                        <button class="mt-2 w-full bg-blue-500 text-white text-sm py-1 rounded hover:bg-blue-600">Thêm vào giỏ</button>
+                        <button onclick='addToCart("${b.title}")' class="mt-2 w-full bg-blue-500 text-white text-sm py-1 rounded hover:bg-blue-600">Thêm vào giỏ</button>
                     </div>
                 `;
                 list.appendChild(card);
             });
+        }
+
+        function addToCart(title) {
+            const book = books.find(b => b.title === title);
+            if (!cart.find(i => i.title === title)) cart.push(book);
+            renderCart();
+            flashCart();
+        }
+
+        function renderCart() {
+            const list = document.getElementById("cart-items");
+            const emptyMsg = document.getElementById("empty-cart-msg");
+            list.innerHTML = "";
+            if (cart.length === 0) {
+                emptyMsg.style.display = "block";
+            } else {
+                emptyMsg.style.display = "none";
+                cart.forEach((item, index) => {
+                    const li = document.createElement("li");
+                    li.className = "flex justify-between items-center bg-gray-100 px-3 py-2 rounded";
+                    li.innerHTML = `
+                        <span>${item.title}</span>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:underline">Xóa</button>
+                    `;
+                    list.appendChild(li);
+                });
+            }
+            document.getElementById("cart-count").textContent = cart.length;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function toggleCart() {
+            const cartSection = document.getElementById("cart");
+            cartSection.scrollIntoView({ behavior: "smooth" });
         }
 
         function filterBooks(category) {
@@ -138,7 +208,14 @@
             renderBooks(books.filter(b => b.category.includes(category)));
         }
 
-        // Initial render
+        function flashCart() {
+            const cartCount = document.getElementById("cart-count");
+            cartCount.classList.add("flash");
+            setTimeout(() => {
+                cartCount.classList.remove("flash");
+            }, 500);
+        }
+
         renderBooks();
     </script>
 </body>
