@@ -47,6 +47,8 @@
 ## Giỏ hàng
    ![Xem giỏ, sản phẩm, tổng giá](gio-hang.jpg)
 
+## Tìm kiếm sách theo tên
+
 ###  Chưa hoàn thành (có thể làm thêm)
 - [ ] Tích hợp thanh toán online (VNPay, Momo,...)
 - [ ] Gửi mail xác nhận khi đặt đơn
